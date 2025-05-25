@@ -2,7 +2,7 @@
 #define BUS_H
 
 class Bus {
-    // TODO
+  // TODO
 };
 
 #endif //BUS_H
