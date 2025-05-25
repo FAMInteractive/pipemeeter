@@ -3,6 +3,9 @@
 
 cmake-build-debug/
 
+# IDEA CLion
+.idea/
+
 *~
 *.autosave
 *.a
@@ -75,8 +78,7 @@ CMakeLists.txt.user*
 *.dll
 *.exe
 
-# IDEA CLion
-.idea/
+
 
 # Directories with generated files
 .moc/
