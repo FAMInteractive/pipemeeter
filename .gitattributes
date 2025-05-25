@@ -1,0 +1,5 @@
+* text eol=lf
+
+*.cpp text
+*.h text
+*.txt text
