@@ -1,10 +1,17 @@
-#include "MainWindow.h"
+#include "Audio/Audio.h"
+#include "Gui/MainWindow.h"
 
 #include <QApplication>
+#include <iostream>
 
 int main(int argc, char *argv[]) {
-  QApplication a(argc, argv);
-  MainWindow w;
-  w.show();
-  return a.exec();
+
+  Audio audio;
+
+  // QApplication a(argc, argv);
+  // MainWindow w;
+  // w.show();
+  // return a.exec();
+
+  return 0;
 }
