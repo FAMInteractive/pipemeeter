@@ -14,23 +14,22 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(PkgConfig REQUIRED)
-pkg_check_modules(PIPEWIRE REQUIRED libpipewire-0.3)
-include_directories(${PIPEWIRE_INCLUDE_DIRS})
+
 
 set(PROJECT_SOURCES
         src/Main.cpp
         src/Gui/MainWindow.cpp
         src/Gui/MainWindow.h
         src/Gui/MainWindow.ui
-        src/Audio/Audio.cpp
-        src/Audio/Audio.h
+        src/Audio/AudioInput.cpp
+        src/Audio/AudioInput.h
 
 )
 add_executable(pipemeeter
         ${PROJECT_SOURCES}
 )
 
-include(cmake/CPM.cmake)
+include("cmake/CPM.cmake")
 
 CPMFindPackage(
         NAME           rohrkabel
@@ -38,7 +37,7 @@ CPMFindPackage(
         GIT_REPOSITORY "https://github.com/Curve/rohrkabel"
 )
 
-target_link_libraries(pipemeeter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets cr::rohrkabel)
+target_link_libraries(pipemeeter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets rohrkabel)
 
 include(GNUInstallDirs)
 install(TARGETS pipemeeter
