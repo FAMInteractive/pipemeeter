@@ -24,15 +24,21 @@ set(PROJECT_SOURCES
         src/Gui/MainWindow.ui
         src/Audio/Audio.cpp
         src/Audio/Audio.h
-        src/Audio/Mixer.cpp
-        src/Audio/Mixer.h
 
 )
 add_executable(pipemeeter
         ${PROJECT_SOURCES}
 )
 
-target_link_libraries(pipemeeter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ${PIPEWIRE_LIBRARIES})
+include(cmake/CPM.cmake)
+
+CPMFindPackage(
+        NAME           rohrkabel
+        VERSION        9.0.0
+        GIT_REPOSITORY "https://github.com/Curve/rohrkabel"
+)
+
+target_link_libraries(pipemeeter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets cr::rohrkabel)
 
 include(GNUInstallDirs)
 install(TARGETS pipemeeter
